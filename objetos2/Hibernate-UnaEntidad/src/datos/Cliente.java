@@ -5,7 +5,7 @@ import negocio.Funciones;
 
 
 public class Cliente {
-	private long idCliente;
+	private int idCliente;
 	private String apellido;
 	private String nombre;
 	private int dni;
@@ -27,9 +27,9 @@ public class Cliente {
 		return idCliente;
 	}
 
-	protected void setIdCliente(long idCliente) {
+	protected void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
-	}	//TODO como hace hibernate para acceder si el metodo esta protegido?
+	}
 
 	public String getApellido() {
 		return apellido;
@@ -76,6 +76,5 @@ public class Cliente {
 		return (idCliente + " " + apellido + " " + nombre + " " + dni + "F.de Nacimiento: "
 				+ Funciones.traerFechaCorta(fechaDeNacimiento) + " " + baja);
 	}
-		
-	 
+		 
 }

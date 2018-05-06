@@ -9,10 +9,10 @@ public class TestAgregarClientes {
 			String apellido = "De Laforé" ;
 			String nombre= "Pablo" ;
 			int documento = 37750103;
-			GregorianCalendar fechaDeNacimiento= new GregorianCalendar(); // tu fecha de nacimiento
+			GregorianCalendar fechaDeNacimiento = new GregorianCalendar(1993,8,17); // tu fecha de nacimiento
+			
 			ClienteABM abm = new ClienteABM();
-			long ultimoIdCliente = abm.agregar(apellido, nombre, documento,
-			fechaDeNacimiento);
+			long ultimoIdCliente = abm.agregar(apellido, nombre, documento, fechaDeNacimiento);
 			
 		}
 		catch(Exception currentException){

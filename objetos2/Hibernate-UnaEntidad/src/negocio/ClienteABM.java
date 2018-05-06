@@ -38,7 +38,6 @@ public class ClienteABM {
 		con el mismo documento a modificar
 		y con el mismo id, lanzar la Exception */	
 		if (dao.traerCliente(cliente.getDni()) != null) {
-			//TODO no se que campo es el que se intenta modificar,si se modifica el dni, chequear que no exista(consigna) 
 			throw new Exception ("Error el usuario que intenta modificar no existe");
 		}
 		else {
@@ -51,11 +50,15 @@ public class ClienteABM {
 		dependencias*/
 		Cliente cliente = dao.traerCliente(idCliente);
 		// Implementar que si es null que arroje la excepción la Excepción
-		if(cliente!= null) {
+		if(cliente == null) {
 			throw new Exception("Error el cliente que desea eliminar no existe");
-		}		
+		}
+		else {	
 		dao.eliminar(cliente);
 		}
-		public List<Cliente> traerCliente(){ return dao.traerCliente();
+	}
+	
+	public List<Cliente> traerCliente(){ 
+			return dao.traerCliente();
 	}
 }

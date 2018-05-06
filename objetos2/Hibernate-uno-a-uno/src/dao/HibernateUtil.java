@@ -9,19 +9,20 @@ import org.hibernate.service.ServiceRegistryBuilder;
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
 	
-	public static SessionFactory getSessionFactory(){
-		try{
+	public static SessionFactory getSessionFactory (){//TODO por que no requiere un throws Exception???
+		try {
 			if (sessionFactory == null){
 				Configuration configuration = new Configuration().configure();
 				ServiceRegistryBuilder registry = new ServiceRegistryBuilder();
 				registry.applySettings(configuration.getProperties());
 				ServiceRegistry serviceRegistry = registry.buildServiceRegistry();
-				sessionFactory = configuration.buildSessionFactory(serviceRegistry);	
+				sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 			}
+			
 		}
-		catch(HibernateException he){
+		catch (HibernateException he) {
 			System.err.println("ERROR en la inicializacion de la Session Factory:" + he);
-			throw new ExceptionInInitializerError(he);
+			throw new ExceptionInInitializerError (he);
 		}
 		return sessionFactory;
 	}
